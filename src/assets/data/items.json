@@ -1,0 +1,263 @@
+[
+    {
+      "agregado": false,
+      "tombamento": "0010035736",
+      "tombamentoSAMP": "0010035736",
+      "numero": "04.71.95.0233-4",
+      "itemPrincipal": "MESA TAMPO VIDRO",
+      "valorAquisicao": 94.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "23/12/2018",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035737",
+      "tombamentoSAMP": "0010035737",
+      "numero": "04.71.95.0233-5",
+      "itemPrincipal": "DESKTOP DELL XPS 8930",
+      "valorAquisicao": 130.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "12/01/2020",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035738",
+      "tombamentoSAMP": "0010035738",
+      "numero": "04.71.95.0233-6",
+      "itemPrincipal": "MOUSE BLUETOOTH DELL",
+      "valorAquisicao": 50.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "15/06/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035739",
+      "tombamentoSAMP": "0010035739",
+      "numero": "04.71.95.0233-7",
+      "itemPrincipal": "TECLADO ABNT2 COM FIO DELL PRETO",
+      "valorAquisicao": 80.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "20/03/2021",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035740",
+      "tombamentoSAMP": "0010035740",
+      "numero": "04.71.95.0233-8",
+      "itemPrincipal": "FORNO MICRO-ONDAS LG ACTIVE",
+      "valorAquisicao": 300.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "10/07/2020",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035741",
+      "tombamentoSAMP": "0010035741",
+      "numero": "04.71.95.0233-9",
+      "itemPrincipal": "LIVRO DIREITO AMBIENTAL BRASILEIRO",
+      "valorAquisicao": 60.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "23/12/2019",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035742",
+      "tombamentoSAMP": "0010035742",
+      "numero": "04.71.95.0233-10",
+      "itemPrincipal": "POLTRONA PARA CONJUNTO ESTOFADO",
+      "valorAquisicao": 400.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "05/11/2020",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035743",
+      "tombamentoSAMP": "0010035743",
+      "numero": "04.71.95.0233-11",
+      "itemPrincipal": "MESA EM GRANITO",
+      "valorAquisicao": 500.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "12/08/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035744",
+      "tombamentoSAMP": "0010035744",
+      "numero": "04.71.95.0233-12",
+      "itemPrincipal": "SMARTPHONE SAMSUNG GALAXY S20",
+      "valorAquisicao": 2000.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "17/05/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035745",
+      "tombamentoSAMP": "0010035745",
+      "numero": "04.71.95.0233-13",
+      "itemPrincipal": "CADEIRA ERGONÔMICA",
+      "valorAquisicao": 350.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "25/07/2020",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035746",
+      "tombamentoSAMP": "0010035746",
+      "numero": "04.71.95.0233-14",
+      "itemPrincipal": "LAVADORA DE ROUPA LG",
+      "valorAquisicao": 800.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "20/09/2021",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035747",
+      "tombamentoSAMP": "0010035747",
+      "numero": "04.71.95.0233-15",
+      "itemPrincipal": "MICRO-ONDAS SAMSUNG",
+      "valorAquisicao": 400.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "03/06/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035748",
+      "tombamentoSAMP": "0010035748",
+      "numero": "04.71.95.0233-16",
+      "itemPrincipal": "GELADEIRA CONSUL",
+      "valorAquisicao": 1200.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "15/01/2021",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035749",
+      "tombamentoSAMP": "0010035749",
+      "numero": "04.71.95.0233-17",
+      "itemPrincipal": "TELEVISION 4K LG",
+      "valorAquisicao": 2200.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "30/11/2020",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035750",
+      "tombamentoSAMP": "0010035750",
+      "numero": "04.71.95.0233-18",
+      "itemPrincipal": "CADEIRA DE ESCRITÓRIO",
+      "valorAquisicao": 450.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "10/09/2020",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035751",
+      "tombamentoSAMP": "0010035751",
+      "numero": "04.71.95.0233-19",
+      "itemPrincipal": "DESK LAMP LED",
+      "valorAquisicao": 70.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "25/02/2021",
+        "bemRelacionavel": false
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035752",
+      "tombamentoSAMP": "0010035752",
+      "numero": "04.71.95.0233-20",
+      "itemPrincipal": "CÂMERA DE SEGURANÇA CIRCULAR",
+      "valorAquisicao": 500.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "11/07/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": true,
+      "tombamento": "0010035753",
+      "tombamentoSAMP": "0010035753",
+      "numero": "04.71.95.0233-21",
+      "itemPrincipal": "ROTEADOR WIFI 6",
+      "valorAquisicao": 150.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "22/03/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035754",
+      "tombamentoSAMP": "0010035754",
+      "numero": "04.71.95.0233-22",
+      "itemPrincipal": "CARREGADOR PORTÁTIL",
+      "valorAquisicao": 90.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "03/10/2021",
+        "bemRelacionavel": true
+      }
+    },
+    {
+      "agregado": false,
+      "tombamento": "0010035755",
+      "tombamentoSAMP": "0010035755",
+      "numero": "04.71.95.0233-23",
+      "itemPrincipal": "PEN DRIVE 64GB",
+      "valorAquisicao": 40.0,
+      "situacao": "Registrado",
+      "detalhes": {
+        "dataAquisicao": "14/06/2021",
+        "bemRelacionavel": false
+      }
+    }
+  ]
+  

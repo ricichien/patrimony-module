@@ -1,0 +1,49 @@
+/* global.css */
+.bg-yes {
+    background-color: #f0fffe;
+    color: #29e3da;
+    border: 1px solid #b5fffb;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .bg-no {
+    background-color: #f0f2f2;
+    color: #6e6e6e;
+    border: 1px solid #dbdbdb;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .bg-success-situation {
+    background-color: #f0fff4;
+    color: #5fe03f;
+    border: 1px solid #5fe03f;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .bg-secondary-situation {
+    background-color: #f0f2f2;
+    color: #6e6e6e;
+    border: 1px solid #dbdbdb;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
