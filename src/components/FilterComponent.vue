@@ -14,48 +14,58 @@
     <div v-if="mostrar" class="p-3">
       <div class="d-flex align-items-center gap-2 flex-wrap">
         <label class="fw-semibold">Situação:</label>
-        <div class="dropdown">
-          <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+
+        <!-- Dropdown controlado por Vue -->
+        <div class="position-relative">
+          <button
+            class="btn btn-light border dropdown-toggle"
+            type="button"
+            @click="dropdownAberto = !dropdownAberto"
+          >
             {{ modelValue }}
           </button>
-          <ul class="dropdown-menu">
+
+          <ul
+            class="dropdown-menu show"
+            v-if="dropdownAberto"
+            style="display: block; position: absolute; z-index: 1000;"
+          >
             <li v-for="opcao in opcoes" :key="opcao">
-              <a class="dropdown-item" href="#" @click.prevent="$emit('update:modelValue', opcao)">
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="selecionar(opcao)"
+              >
                 {{ opcao }}
               </a>
             </li>
           </ul>
         </div>
-        <i class="bi bi-info-circle text-muted" title="Filtra pela situação atual do item."></i>
+
+        <i
+          class="bi bi-info-circle text-muted"
+          title="Filtra pela situação atual do item."
+        ></i>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue'
+import { ref, defineProps, defineEmits } from 'vue'
 
-defineProps({
+const props = defineProps({
   modelValue: String,
 })
 
-const opcoes = ['Registrado', 'Baixado', 'Manutenção', 'Em uso']
+const emit = defineEmits(['update:modelValue'])
+
 const mostrar = ref(true)
+const dropdownAberto = ref(false)
+const opcoes = ['Todos', 'Registrado', 'Baixado', 'Manutenção', 'Em uso']
+
+function selecionar(opcao) {
+  emit('update:modelValue', opcao)
+  dropdownAberto.value = false
+}
 </script>
-
-
-<!-- <template>
-    <div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'FilterComponent'
-  };
-  </script>
-  
-  <style scoped>
-  /* Estilos específicos deste componente */
-  </style>
-   -->

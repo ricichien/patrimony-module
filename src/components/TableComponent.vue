@@ -1,8 +1,11 @@
 <template>
-  <FilterComponent v-model="filtroSituacao" />
+ <FilterComponent v-model="filtroSituacao" />
+
+
+  <ReportsComponent />
 
   <div class="mt-4">
-    <table class="table table-hover ">
+    <table class="table table-hover">
       <thead>
         <tr class="bg-secondary text-white">
           <th></th>
@@ -40,12 +43,14 @@
                 {{ item.situacao }}
               </div>
             </td>
-            <td><button class="btn p-0">
+            <td>
+              <button class="btn p-0">
                 <i class="bi bi-three-dots-vertical"></i>
-              </button></td>
+              </button>
+            </td>
           </tr>
 
-          <!-- Linha de detalhes (dropdown) -->
+          <!-- Linha de detalhes -->
           <tr v-if="isExpanded(index)">
             <td colspan="9" class="bg-light">
               <div class="p-2">
@@ -59,27 +64,26 @@
     </table>
   </div>
 
-  <PaginationComponent :totalItems="items.length" :page="page" :pageSize="pageSize" @update:page="page = $event"
-    @update:pageSize="pageSize = $event" />
-
+  <PaginationComponent
+    :totalItems="filteredItems.length"
+    :page="page"
+    :pageSize="pageSize"
+    @update:page="page = $event"
+    @update:pageSize="pageSize = $event"
+  />
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { fetchItems } from '@/services/itemService'
 import PaginationComponent from '@/components/PaginationComponent.vue'
-import FilterComponent from '@/components/FilterComponent.vue' // ajuste o caminho se necessário
+import FilterComponent from '@/components/FilterComponent.vue'
+import ReportsComponent from '@/components/ReportsComponent.vue'
 
-const filtroSituacao = ref('Registrado')
-
-const filteredItems = computed(() => {
-  return items.value.filter(item => item.situacao === filtroSituacao.value)
-})
-
+const filtroSituacao = ref('Todos')
 const items = ref([])
 const page = ref(1)
 const pageSize = ref(8)
-
 const expandedRows = ref([])
 
 const toggleRow = (index) => {
@@ -91,20 +95,21 @@ const toggleRow = (index) => {
   }
 }
 
-const isExpanded = (index) => {
-  return expandedRows.value.includes(index)
-}
+const isExpanded = (index) => expandedRows.value.includes(index)
 
 onMounted(async () => {
   items.value = await fetchItems()
 })
 
-// const paginatedItems = computed(() => {
-//   const start = (page.value - 1) * pageSize.value
-//   return items.value.slice(start, start + pageSize.value)
-// })
+const filteredItems = computed(() => {
+  if (filtroSituacao.value === 'Todos') return items.value
+  return items.value.filter(item => item.situacao === filtroSituacao.value)
+})
+
+
 const paginatedItems = computed(() => {
   const start = (page.value - 1) * pageSize.value
   return filteredItems.value.slice(start, start + pageSize.value)
 })
 </script>
+
