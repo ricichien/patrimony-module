@@ -3,14 +3,14 @@
       <div class="row">
         <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-end align-items-center gap-2">
           
-          <!-- Items per page selector -->
+          <!-- Seletor de itens por página -->
           <select v-model.number="localPageSize" @change="handlePageSizeChange" class="form-select w-auto">
             <option v-for="size in pageSizeOptions" :key="size" :value="size">
               {{ size.toString().padStart(2, '0') }} {{ $t('pagination.perPage') }}
             </option>
           </select>
   
-          <!-- Numeric pagination -->
+          <!-- Paginacao numerica -->
           <div class="btn-group flex-wrap gap-3" role="group">
             <button class="btn btn-outline-secondary rounded-1" :disabled="page === 1" @click="goTo(page - 1)">
               &lt;
@@ -50,7 +50,7 @@
             </button>
           </div>
   
-          <!-- Go to page -->
+          <!-- Ir para página -->
           <div class="d-flex align-items-center">
             <label for="gotoPageInput" class="me-2 mb-0">{{ $t('pagination.goTo') }}</label>
             <input

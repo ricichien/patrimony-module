@@ -1,4 +1,8 @@
 <template>
+        <div class="mb-4">
+        <h1 class="mb-1 h6 text">{{ $t('head.moduleTitle') }}</h1>
+        <h2>{{ $t('head.items') }}</h2>
+      </div>
   <FilterComponent v-model="filtroSituacao" />
   <ReportsComponent />
 
