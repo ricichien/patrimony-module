@@ -1,57 +1,73 @@
 <template>
     <div class="container-fluid px-0">
-        <div class="row">
-            <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-end align-items-center gap-2">
-
-                <!-- Seleção de itens por página -->
-                <select v-model.number="localPageSize" @change="handlePageSizeChange" class="form-select w-auto">
-                    <option v-for="size in pageSizeOptions" :key="size" :value="size">
-                        {{ size.toString().padStart(2, '0') }} / página
-                    </option>
-                </select>
-
-                <!-- Paginação numérica -->
-                <div class="btn-group flex-wrap gap-3" role="group">
-                    <button class="btn btn-outline-secondary rounded-1" :disabled="page === 1" @click="goTo(page - 1)">
-                        &lt;
-                    </button>
-
-                    <button v-for="p in visiblePages" :key="p" class="btn rounded-1" :class="{
-                        'btn-outline-primary': p === page,
-                        'btn-outline-secondary': p !== page
-                    }" @click="goTo(p)">
-                        {{ p }}
-                    </button>
-
-                    <button v-if="showEllipsis" class="btn btn-outline-secondary rounded-1" disabled>
-                        ...
-                    </button>
-
-                    <button v-if="totalPages > 1" class="btn rounded-1" :class="{
-                        'btn-outline-primary': page === totalPages,
-                        'btn-outline-secondary': page !== totalPages
-                    }" @click="goTo(totalPages)">
-                        {{ totalPages }}
-                    </button>
-
-                    <button class="btn btn-outline-secondary rounded-1" :disabled="page === totalPages"
-                        @click="goTo(page + 1)">
-                        &gt;
-                    </button>
-                </div>
-
-
-                <!-- Ir para página -->
-                <div class="d-flex align-items-center">
-                    <label for="gotoPageInput" class="me-2 mb-0">Ir para</label>
-                    <input id="gotoPageInput" type="number" v-model.number="jumpPage" @keyup.enter="goTo(jumpPage)"
-                        :min="1" :max="totalPages" class="form-control" style="width: 80px" />
-                </div>
-
-            </div>
+      <div class="row">
+        <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-end align-items-center gap-2">
+          
+          <!-- Items per page selector -->
+          <select v-model.number="localPageSize" @change="handlePageSizeChange" class="form-select w-auto">
+            <option v-for="size in pageSizeOptions" :key="size" :value="size">
+              {{ size.toString().padStart(2, '0') }} {{ $t('pagination.perPage') }}
+            </option>
+          </select>
+  
+          <!-- Numeric pagination -->
+          <div class="btn-group flex-wrap gap-3" role="group">
+            <button class="btn btn-outline-secondary rounded-1" :disabled="page === 1" @click="goTo(page - 1)">
+              &lt;
+            </button>
+  
+            <button
+              v-for="p in visiblePages"
+              :key="p"
+              class="btn rounded-1"
+              :class="{
+                'btn-outline-primary': p === page,
+                'btn-outline-secondary': p !== page
+              }"
+              @click="goTo(p)"
+            >
+              {{ p }}
+            </button>
+  
+            <button v-if="showEllipsis" class="btn btn-outline-secondary rounded-1" disabled>
+              ...
+            </button>
+  
+            <button
+              v-if="totalPages > 1"
+              class="btn rounded-1"
+              :class="{
+                'btn-outline-primary': page === totalPages,
+                'btn-outline-secondary': page !== totalPages
+              }"
+              @click="goTo(totalPages)"
+            >
+              {{ totalPages }}
+            </button>
+  
+            <button class="btn btn-outline-secondary rounded-1" :disabled="page === totalPages" @click="goTo(page + 1)">
+              &gt;
+            </button>
+          </div>
+  
+          <!-- Go to page -->
+          <div class="d-flex align-items-center">
+            <label for="gotoPageInput" class="me-2 mb-0">{{ $t('pagination.goTo') }}</label>
+            <input
+              id="gotoPageInput"
+              type="number"
+              v-model.number="jumpPage"
+              @keyup.enter="goTo(jumpPage)"
+              :min="1"
+              :max="totalPages"
+              class="form-control"
+              style="width: 80px"
+            />
+          </div>
         </div>
+      </div>
     </div>
-</template>
+  </template>
 
 <script setup>
 import { ref, watch, computed } from 'vue'

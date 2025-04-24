@@ -1,7 +1,5 @@
 <template>
- <FilterComponent v-model="filtroSituacao" />
-
-
+  <FilterComponent v-model="filtroSituacao" />
   <ReportsComponent />
 
   <div class="mt-4">
@@ -9,14 +7,14 @@
       <thead>
         <tr class="bg-secondary text-white">
           <th></th>
-          <th>Agregado</th>
-          <th>Tombamento</th>
-          <th>Tombamento SAMP</th>
-          <th>Número</th>
-          <th>Item principal</th>
-          <th>Valor aquisição</th>
-          <th>Situação</th>
-          <th>Opções</th>
+          <th>{{ $t('table.aggregated') }}</th>
+          <th>{{ $t('table.tombamento') }}</th>
+          <th>{{ $t('table.tombamentoSAMP') }}</th>
+          <th>{{ $t('table.number') }}</th>
+          <th>{{ $t('table.mainItem') }}</th>
+          <th>{{ $t('table.acquisitionValue') }}</th>
+          <th>{{ $t('table.status') }}</th>
+          <th>{{ $t('table.options') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +28,7 @@
             </td>
             <td>
               <div :class="item.agregado ? 'bg-yes' : 'bg-no'">
-                {{ item.agregado ? 'Sim' : 'Não' }}
+                {{ item.agregado ? $t('common.yes') : $t('common.no') }}
               </div>
             </td>
             <td class="text-muted">{{ item.tombamento }}</td>
@@ -54,8 +52,8 @@
           <tr v-if="isExpanded(index)">
             <td colspan="9" class="bg-light">
               <div class="p-2">
-                <p><strong>Data de aquisição:</strong> {{ item.detalhes.dataAquisicao }}</p>
-                <p><strong>Bem relacionável:</strong> {{ item.detalhes.bemRelacionavel ? 'Sim' : 'Não' }}</p>
+                <p><strong>{{ $t('table.acquisitionDate') }}:</strong> {{ item.detalhes.dataAquisicao }}</p>
+                <p><strong>{{ $t('table.relatableAsset') }}:</strong> {{ item.detalhes.bemRelacionavel ? $t('common.yes') : $t('common.no') }}</p>
               </div>
             </td>
           </tr>
@@ -73,43 +71,44 @@
   />
 </template>
 
-<script setup>
-import { ref, computed, onMounted } from 'vue'
-import { fetchItems } from '@/services/itemService'
-import PaginationComponent from '@/components/PaginationComponent.vue'
-import FilterComponent from '@/components/FilterComponent.vue'
-import ReportsComponent from '@/components/ReportsComponent.vue'
-
-const filtroSituacao = ref('Todos')
-const items = ref([])
-const page = ref(1)
-const pageSize = ref(8)
-const expandedRows = ref([])
-
-const toggleRow = (index) => {
-  const rowIndex = expandedRows.value.indexOf(index)
-  if (rowIndex === -1) {
-    expandedRows.value.push(index)
-  } else {
-    expandedRows.value.splice(rowIndex, 1)
-  }
-}
-
-const isExpanded = (index) => expandedRows.value.includes(index)
-
-onMounted(async () => {
-  items.value = await fetchItems()
-})
-
-const filteredItems = computed(() => {
-  if (filtroSituacao.value === 'Todos') return items.value
-  return items.value.filter(item => item.situacao === filtroSituacao.value)
-})
-
-
-const paginatedItems = computed(() => {
-  const start = (page.value - 1) * pageSize.value
-  return filteredItems.value.slice(start, start + pageSize.value)
-})
-</script>
-
+ 
+ <script setup>
+ import { ref, computed, onMounted } from 'vue'
+ import { fetchItems } from '@/services/itemService'
+ import PaginationComponent from '@/components/PaginationComponent.vue'
+ import FilterComponent from '@/components/FilterComponent.vue'
+ import ReportsComponent from '@/components/ReportsComponent.vue'
+ 
+ const filtroSituacao = ref('Todos')
+ const items = ref([])
+ const page = ref(1)
+ const pageSize = ref(8)
+ const expandedRows = ref([])
+ 
+ const toggleRow = (index) => {
+   const rowIndex = expandedRows.value.indexOf(index)
+   if (rowIndex === -1) {
+     expandedRows.value.push(index)
+   } else {
+     expandedRows.value.splice(rowIndex, 1)
+   }
+ }
+ 
+ const isExpanded = (index) => expandedRows.value.includes(index)
+ 
+ onMounted(async () => {
+   items.value = await fetchItems()
+ })
+ 
+ const filteredItems = computed(() => {
+   if (filtroSituacao.value === 'Todos') return items.value
+   return items.value.filter(item => item.situacao === filtroSituacao.value)
+ })
+ 
+ 
+ const paginatedItems = computed(() => {
+   const start = (page.value - 1) * pageSize.value
+   return filteredItems.value.slice(start, start + pageSize.value)
+ })
+ </script>
+ 
