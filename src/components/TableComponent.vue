@@ -1,8 +1,8 @@
 <template>
-        <div class="mb-4">
-        <h1 class="mb-1 h6 text">{{ $t('head.moduleTitle') }}</h1>
-        <h2>{{ $t('head.items') }}</h2>
-      </div>
+  <div class="mb-4">
+    <h1 class="mb-1 h6 text">{{ $t('head.moduleTitle') }}</h1>
+    <h2>{{ $t('head.items') }}</h2>
+  </div>
   <FilterComponent v-model="filtroSituacao" />
   <ReportsComponent />
 
@@ -41,9 +41,17 @@
             <td class="text-muted">{{ item.itemPrincipal }}</td>
             <td class="text-muted">{{ item.valorAquisicao }}</td>
             <td>
-              <div class="bg-success-situation">
+              <!-- <div class="bg-success-situation">
                 {{ item.situacao }}
+              </div> -->
+              <div v-if="item.situacao === 'Registrado'" class="bg-success-situation">
+                {{ $t('status.' + item.situacao) }}
               </div>
+
+              <div v-if="item.situacao === 'Manutenção'" class="bg-maintenance-situation">
+                {{ $t('status.' + item.situacao) }}
+              </div>
+
             </td>
             <td>
               <button class="btn p-0">
@@ -57,7 +65,8 @@
             <td colspan="9" class="bg-light">
               <div class="p-2">
                 <p><strong>{{ $t('table.acquisitionDate') }}:</strong> {{ item.detalhes.dataAquisicao }}</p>
-                <p><strong>{{ $t('table.relatableAsset') }}:</strong> {{ item.detalhes.bemRelacionavel ? $t('common.yes') : $t('common.no') }}</p>
+                <p><strong>{{ $t('table.relatableAsset') }}:</strong> {{ item.detalhes.bemRelacionavel ?
+                  $t('common.yes') : $t('common.no') }}</p>
               </div>
             </td>
           </tr>
@@ -66,53 +75,47 @@
     </table>
   </div>
 
-  <PaginationComponent
-    :totalItems="filteredItems.length"
-    :page="page"
-    :pageSize="pageSize"
-    @update:page="page = $event"
-    @update:pageSize="pageSize = $event"
-  />
+  <PaginationComponent :totalItems="filteredItems.length" :page="page" :pageSize="pageSize" @update:page="page = $event"
+    @update:pageSize="pageSize = $event" />
 </template>
 
- 
- <script setup>
- import { ref, computed, onMounted } from 'vue'
- import { fetchItems } from '@/services/itemService'
- import PaginationComponent from '@/components/PaginationComponent.vue'
- import FilterComponent from '@/components/FilterComponent.vue'
- import ReportsComponent from '@/components/ReportsComponent.vue'
- 
- const filtroSituacao = ref('Todos')
- const items = ref([])
- const page = ref(1)
- const pageSize = ref(8)
- const expandedRows = ref([])
- 
- const toggleRow = (index) => {
-   const rowIndex = expandedRows.value.indexOf(index)
-   if (rowIndex === -1) {
-     expandedRows.value.push(index)
-   } else {
-     expandedRows.value.splice(rowIndex, 1)
-   }
- }
- 
- const isExpanded = (index) => expandedRows.value.includes(index)
- 
- onMounted(async () => {
-   items.value = await fetchItems()
- })
- 
- const filteredItems = computed(() => {
-   if (filtroSituacao.value === 'Todos') return items.value
-   return items.value.filter(item => item.situacao === filtroSituacao.value)
- })
- 
- 
- const paginatedItems = computed(() => {
-   const start = (page.value - 1) * pageSize.value
-   return filteredItems.value.slice(start, start + pageSize.value)
- })
- </script>
- 
+
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { fetchItems } from '@/services/itemService'
+import PaginationComponent from '@/components/PaginationComponent.vue'
+import FilterComponent from '@/components/FilterComponent.vue'
+import ReportsComponent from '@/components/ReportsComponent.vue'
+
+const filtroSituacao = ref('Todos')
+const items = ref([])
+const page = ref(1)
+const pageSize = ref(8)
+const expandedRows = ref([])
+
+const toggleRow = (index) => {
+  const rowIndex = expandedRows.value.indexOf(index)
+  if (rowIndex === -1) {
+    expandedRows.value.push(index)
+  } else {
+    expandedRows.value.splice(rowIndex, 1)
+  }
+}
+
+const isExpanded = (index) => expandedRows.value.includes(index)
+
+onMounted(async () => {
+  items.value = await fetchItems()
+})
+
+const filteredItems = computed(() => {
+  if (filtroSituacao.value === 'Todos') return items.value
+  return items.value.filter(item => item.situacao === filtroSituacao.value)
+})
+
+
+const paginatedItems = computed(() => {
+  const start = (page.value - 1) * pageSize.value
+  return filteredItems.value.slice(start, start + pageSize.value)
+})
+</script>

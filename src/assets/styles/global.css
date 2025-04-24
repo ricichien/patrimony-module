@@ -34,6 +34,18 @@
     padding: 0.25rem;
     border-radius: 0.25rem;
   }
+
+  .bg-maintenance-situation {
+    background-color: #fdfff0;
+    color: #dde03f;
+    border: 1px solid #d5e03f;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
   
   .bg-secondary-situation {
     background-color: #f0f2f2;

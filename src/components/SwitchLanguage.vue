@@ -1,6 +1,6 @@
 <template>
     <div class="language-switcher d-flex justify-content-end p-2">
-      <button class="btn btn-outline-primary me-2" @click="switchLanguage">
+      <button class="btn btn-outline-secondary me-2" @click="switchLanguage">
         {{ currentLanguage === 'pt_BR' ? 'EN' : 'PT' }}
       </button>
     </div>

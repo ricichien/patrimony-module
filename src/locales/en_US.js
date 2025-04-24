@@ -26,15 +26,15 @@ export default {
     status: 'Status',
     tooltip: 'Filters by the item\'s current status.'
   },
+  pagination: {
+    perPage: '/ page',
+    goTo: 'Go to'
+  },
   status: {
     Todos: 'All',
     Registrado: 'Registered',
     Baixado: 'Written off',
     'Manutenção': 'Under maintenance',
     'Em uso': 'In use'
-  },
-  pagination: {
-    perPage: '/ page',
-    goTo: 'Go to'
   }
 }
