@@ -36,5 +36,8 @@ export default {
   pagination: {
     perPage: '/ página',
     goTo: 'Ir para'
+  },
+  reports: {
+    reports: 'Relatórios'
   }
 }

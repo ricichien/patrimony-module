@@ -36,5 +36,8 @@ export default {
     Baixado: 'Written off',
     'Manutenção': 'Under maintenance',
     'Em uso': 'In use'
+  },
+  reports: {
+    reports: 'Reports'
   }
 }
