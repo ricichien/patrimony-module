@@ -15,7 +15,7 @@
       <div class="d-flex align-items-center gap-2 flex-wrap">
         <label class="fw-semibold">{{ $t('filters.status') }}:</label>
 
-        <!-- Vue-controlled dropdown -->
+        <!-- Dropdown de opcoes -->
         <div class="position-relative">
           <button class="btn btn-light border dropdown-toggle" type="button" @click="dropdownOpen = !dropdownOpen">
             {{ $t('status.' + modelValue) }}
@@ -39,18 +39,27 @@
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
 
+// Define a propriedade 'modelValue' que será recebida do componente pai
 const props = defineProps({
   modelValue: String,
 })
 
+// Define o evento 'update:modelValue' para emitir alterações do valor para o componente pai
 const emit = defineEmits(['update:modelValue'])
 
+// Controle de visibilidade do filtro (expandido ou colapsado)
 const show = ref(true)
+
+// Controle de abertura do dropdown
 const dropdownOpen = ref(false)
+
+// Opções disponíveis no dropdown
 const options = ['Todos', 'Registrado', 'Baixado', 'Manutenção', 'Em uso']
 
+// Função que emite a seleção do status e fecha o dropdown
 function select(option) {
-  emit('update:modelValue', option)
-  dropdownOpen.value = false
+  emit('update:modelValue', option)  // Emite o novo valor selecionado para o componente pai
+  dropdownOpen.value = false  // Fecha o dropdown após a seleção
 }
+
 </script>
