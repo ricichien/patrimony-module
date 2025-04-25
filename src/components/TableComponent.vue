@@ -12,7 +12,7 @@
       </div>
 
       <!-- Componente de filtro, com v-model para ligação bidirecional -->
-      <FilterComponent v-model="filtroSituacao" />
+      <FilterComponent v-model="solutionFilter" />
       <!-- Componente de relatórios -->
       <ReportsComponent />
 
