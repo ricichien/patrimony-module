@@ -18,10 +18,5 @@
     currentLanguage.value = newLang
   }
   </script>
-  
-  <style scoped>
-  .language-switcher {
-    background: #f8f9fa;
-  }
-  </style>
+
   

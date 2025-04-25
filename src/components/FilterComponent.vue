@@ -1,6 +1,6 @@
 <template>
   <div class="border rounded bg-white shadow-sm mb-3">
-    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
       <button class="btn p-0 text-decoration-none" @click="show = !show">
         <i :class="['bi', show ? 'bi-caret-down-fill' : 'bi-caret-right']"></i>
         <strong class="ms-2">{{ $t('filters.title') }}</strong>
@@ -17,35 +17,20 @@
 
         <!-- Vue-controlled dropdown -->
         <div class="position-relative">
-          <button
-            class="btn btn-light border dropdown-toggle"
-            type="button"
-            @click="dropdownOpen = !dropdownOpen"
-          >
+          <button class="btn btn-light border dropdown-toggle" type="button" @click="dropdownOpen = !dropdownOpen">
             {{ $t('status.' + modelValue) }}
           </button>
 
-          <ul
-            class="dropdown-menu show"
-            v-if="dropdownOpen"
-            style="display: block; position: absolute; z-index: 1000;"
-          >
+          <ul class="dropdown-menu show" v-if="dropdownOpen" style="display: block; position: absolute; z-index: 1000;">
             <li v-for="option in options" :key="option">
-              <a
-                class="dropdown-item"
-                href="#"
-                @click.prevent="select(option)"
-              >
+              <a class="dropdown-item" href="#" @click.prevent="select(option)">
                 {{ $t('status.' + option) }}
               </a>
             </li>
           </ul>
         </div>
 
-        <i
-          class="bi bi-info-circle text-muted"
-          :title="$t('filters.tooltip')"
-        ></i>
+        <i class="bi bi-info-circle text-muted" :title="$t('filters.tooltip')"></i>
       </div>
     </div>
   </div>
@@ -69,4 +54,3 @@ function select(option) {
   dropdownOpen.value = false
 }
 </script>
-

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex justify-content-end p-3">
     <div class="position-relative d-inline-block">
       <button
         class="btn btn-light border dropdown-toggle"
