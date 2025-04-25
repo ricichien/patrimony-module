@@ -1,19 +1,19 @@
 <template>
 
-  <div class="d-flex justify-content-center px-2 px-sm-3 px-md-4 py-4 my-4">
+      <div class="d-flex justify-content-center px-2 px-sm-3 px-md-4 py-4 my-4">
 
 
     <div class="w-100" style="max-width: 1200px;">
       <div class="mb-4 text-center text-md-start">
-        <h1 class="mb-1 h5">{{ $t('head.moduleTitle') }}</h1>
-        <h2 class="h6 text-muted">{{ $t('head.items') }}</h2>
+        <h1 class="mb-1 text-muted h6">{{ $t('head.moduleTitle') }}</h1>
+        <h1 class="h1">{{ $t('head.items') }}</h1>
       </div>
 
       <FilterComponent v-model="filtroSituacao" />
       <ReportsComponent />
 
       <div class="mt-4 table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover small">
           <thead>
             <tr class="bg-secondary text-white">
               <th></th>
@@ -44,8 +44,9 @@
                 <td class="text-muted">{{ item.tombamento }}</td>
                 <td class="text-muted">{{ item.tombamentoSAMP }}</td>
                 <td class="text-muted">{{ item.numero }}</td>
-                <td class="text-muted">{{ item.itemPrincipal }}</td>
-                <td class="text-muted">{{ item.valorAquisicao }}</td>
+                <td class="text-muted me-5">{{ item.itemPrincipal }}</td>
+                <td class="text-muted">{{ item.valorAquisicao.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
+                </td>
                 <td>
                   <div v-if="item.situacao === 'Registrado'" class="bg-success-situation">
                     {{ $t('status.' + item.situacao) }}
@@ -78,8 +79,13 @@
         </table>
       </div>
 
-      <PaginationComponent :totalItems="filteredItems.length" :page="page" :pageSize="pageSize"
-        @update:page="page = $event" @update:pageSize="pageSize = $event" />
+      <PaginationComponent
+        :totalItems="filteredItems.length"
+        :page="page"
+        :pageSize="pageSize"
+        @update:page="page = $event"
+        @update:pageSize="pageSize = $event"
+      />
     </div>
   </div>
 </template>
